@@ -16,7 +16,8 @@ source.complete = function(self, request, callback)
   for _, cs in pairs(candidates) do
     for _, c in pairs(cs[2]) do
       local label = string.gsub(c, [[;.*$]], '')
-      table.insert(items, {
+
+      local item = {
         label = label,
         textEdit = {
           range = {
@@ -31,7 +32,14 @@ source.complete = function(self, request, callback)
           },
           newText = label,
         },
-      })
+      }
+
+      local document = string.match(c, [[;.*$]])
+      if document then
+        item.documentation = string.gsub(document, [[^;]], '')
+      end
+
+      table.insert(items, item)
     end
   end
 
