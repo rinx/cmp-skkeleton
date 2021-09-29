@@ -8,6 +8,10 @@ source.is_available = function()
   return vim.fn['skkeleton#is_enabled']()
 end
 
+source.get_debug_name = function()
+  return 'skkeleton'
+end
+
 source.get_keyword_pattern = function()
   return [[\%(\h\w*\)]]
 end
