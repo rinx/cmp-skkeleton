@@ -8,12 +8,19 @@ source.is_available = function()
   return vim.fn['skkeleton#is_enabled']()
 end
 
+source.get_keyword_pattern = function()
+  return [[\%(\h\w*\)]]
+end
+
 source.complete = function(self, request, callback)
   local candidates = self:_get_candidates()
   local preeditlen = self:_get_pre_edit_length()
 
   local items = {}
+  local cnt = 0
   for _, cs in pairs(candidates) do
+    local kana = cs[1]
+
     for _, c in pairs(cs[2]) do
       local label = string.gsub(c, [[;.*$]], '')
 
@@ -32,15 +39,24 @@ source.complete = function(self, request, callback)
           },
           newText = label,
         },
+        filterText = kana,
       }
 
       local document = string.match(c, [[;.*$]])
       if document then
-        item.documentation = string.gsub(document, [[^;]], '')
+        item.documentation = kana .. '\n' .. string.gsub(document, [[^;]], '')
+      else
+        item.documentation = kana
       end
 
+      cnt = cnt + 1
       table.insert(items, item)
     end
+  end
+
+  if cnt == 0 then
+    callback()
+    return
   end
 
   callback({
