@@ -5,7 +5,7 @@ source.new = function()
 end
 
 source.is_available = function()
-  return vim.g['skkeleton#init']
+  return vim.fn['skkeleton#is_enabled']()
 end
 
 source.complete = function(self, request, callback)
