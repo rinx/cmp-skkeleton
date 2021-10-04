@@ -25,4 +25,4 @@ require('cmp').setup {
 
 ![demo](https://user-images.githubusercontent.com/1588935/135282555-974e7637-776a-43a9-96f8-6a54cef6af41.gif)
 
-Reference: [skkeleton.vim's ddc.vim demo](https://github.com/vim-skk/denops-skkeleton.vim#completion-with-ddcvim)
+Reference: [skkeleton's ddc.vim demo](https://github.com/vim-skk/skkeleton#completion-with-ddcvim)
