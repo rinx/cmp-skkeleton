@@ -1,6 +1,6 @@
 # cmp-skkeleton
 
-[denops-skkeleton.vim](https://github.com/vim-skk/denops-skkeleton.vim) source for [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+[skkeleton](https://github.com/vim-skk/skkeleton) source for [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
 **This project is still work in progress. unstable.**
 
@@ -9,9 +9,8 @@
 Packer
 ```lua
 use 'hrsh7th/nvim-cmp'
-use 'vim-denops/denops.vim'
-use 'vim-skk/denops-skkeleton.vim'
-use { 'rinx/cmp-skkeleton', after = { 'nvim-cmp', 'denops-skkeleton.vim' } }
+use { 'vim-skk/skkeleton', requires = { 'vim-denops/denops.vim' } }
+use { 'rinx/cmp-skkeleton', after = { 'nvim-cmp', 'skkeleton' } }
 ```
 
 ```lua
