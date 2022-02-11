@@ -18,8 +18,8 @@ require('cmp').setup {
   sources = {
     { name = 'skkeleton' }
   }
-  experimental = {
-    native_menu = true
+  view = {
+    entries = 'native'
   }
 }
 ```
