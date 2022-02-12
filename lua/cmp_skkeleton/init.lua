@@ -13,7 +13,7 @@ source.get_debug_name = function()
 end
 
 source.get_keyword_pattern = function()
-  return [[\%(\h\w*\)]]
+  return [[\%([ぁ-ゖ]\+\)]]
 end
 
 source.complete = function(self, request, callback)
