@@ -76,7 +76,7 @@ end
 source.execute = function(self, completion_item, callback)
   local kana = completion_item.filterText
   local word = completion_item.label
-  self:_register_candidate(kana, word)
+  self:_register_henkan_result(kana, word)
 
   callback(completion_item)
 end
@@ -93,8 +93,8 @@ source._get_completion_result = function(_)
   return vim.fn['denops#request']('skkeleton', 'getCompletionResult', {})
 end
 
-source._register_candidate = function(_, kana, word)
-  return vim.fn['denops#request']('skkeleton', 'registerCandidate', {kana, word})
+source._register_henkan_result = function(_, kana, word)
+  return vim.fn['denops#request']('skkeleton', 'registerHenkanResult', {kana, word})
 end
 
 return source
