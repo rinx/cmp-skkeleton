@@ -17,7 +17,7 @@ source.get_keyword_pattern = function()
 end
 
 source.complete = function(self, request, callback)
-  local candidates = self:_get_candidates()
+  local candidates = self:_get_completion_result()
   local preeditlen = self:_get_pre_edit_length()
 
   local items = {}
@@ -89,8 +89,8 @@ source._get_prefix = function(_)
   return vim.fn['denops#request']('skkeleton', 'getPrefix', {})
 end
 
-source._get_candidates = function(_)
-  return vim.fn['denops#request']('skkeleton', 'getCandidates', {})
+source._get_completion_result = function(_)
+  return vim.fn['denops#request']('skkeleton', 'getCompletionResult', {})
 end
 
 source._register_candidate = function(_, kana, word)
